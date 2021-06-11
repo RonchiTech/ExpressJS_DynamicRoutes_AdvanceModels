@@ -29,15 +29,23 @@ exports.getEditProduct = (req, res, next) => {
 };
 
 exports.postEditProduct = (req,res) => {
-  res.render('/')
+  const { id, title, imageUrl, price, description } = req.body;
+  //id, title, imageUrl, description, price;
+  const product = new Product(id, title, imageUrl, description, price);
+  product.save();
+  res.redirect('/admin/products');
 };
+
+exports.postDeleteProduct = (req,res) => {
+  
+}
 
 exports.postAddProduct = (req, res, next) => {
   const title = req.body.title;
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-  const product = new Product(title, imageUrl, description, price);
+  const product = new Product(null,title, imageUrl, description, price);
   product.save();
   res.redirect('/');
 };

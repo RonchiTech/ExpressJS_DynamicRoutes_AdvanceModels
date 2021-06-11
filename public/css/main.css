@@ -139,8 +139,8 @@ form {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
